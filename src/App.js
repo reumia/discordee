@@ -7,7 +7,28 @@ class App extends Component {
         this.state = {
             items: {
                 one: {
-
+                    title: '배틀그라운드 같이 합시다!',
+                    description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
+                    tags: ['배틀그라운드', 'PUBG', 'BATTLEGROUND'],
+                    createAt: '2017-07-20 00:00:00',
+                    addAt: '2017-07-21 00:00:00',
+                    isAdded: false
+                },
+                two: {
+                    title: '제목',
+                    description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
+                    tags: ['배틀그라운드', 'PUBG', 'BATTLEGROUND'],
+                    createAt: '2017-07-20 00:00:00',
+                    addAt: '2017-07-21 00:00:00',
+                    isAdded: false
+                },
+                three: {
+                    title: '제목',
+                    description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
+                    tags: ['배틀그라운드', 'PUBG', 'BATTLEGROUND'],
+                    createAt: '2017-07-20 00:00:00',
+                    addAt: '2017-07-21 00:00:00',
+                    isAdded: false
                 }
             }
         }
@@ -31,7 +52,8 @@ class App extends Component {
                     </div>
                 </nav>
                 <div className="app-body">
-                    <Items/>
+                    <div className="title">최근에 추가된 서버</div>
+                    <Items data={this.state.items}/>
                 </div>
                 <div className="app-footer">
                     &copy; 2017 Discordee All right reserved.

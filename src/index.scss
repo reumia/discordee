@@ -107,7 +107,7 @@ a {
   overflow: hidden;
   border-radius: 4px;
   margin: 40px auto;
-  max-width: 1024px;
+  max-width: 800px;
   background-color: $color-background;
 }
 
@@ -126,7 +126,7 @@ a {
 }
 
 .app-nav {
-  padding: $padding-unit;
+  padding: $padding-unit*2 $padding-unit*2 0;
   background-color: $color-background-darker;
   &:after {
     content: '';
@@ -153,12 +153,14 @@ a {
 }
 
 .app-body {
-  padding: $padding-unit;
+  padding: $padding-unit*3 $padding-unit*2 0;
+  background-color: $color-background-darker;
 }
 
 .app-footer {
-  padding: $padding-unit;
+  padding: $padding-unit*2;
   background-color: $color-background-darker;
+  text-align: center;
 }
 
 /* Items */
@@ -168,20 +170,32 @@ a {
 }
 
 .item {
+  border-radius: $radius-unit;
+  margin-top: $padding-unit;
   padding: $padding-unit;
-}
-
-.item ~ .item {
-  border-top: 1px solid $color-border;
+  border: 1px solid $color-border;
+  background-color: $color-background;
+  transition:
+          border-color $transition-unit,
+          background-color $transition-unit;
+  &:hover {
+    border-color: $color-foreground-darkest;
+    background-color: $color-background-lighter;
+    .item-title {
+      color: $color-foreground;
+    }
+  }
 }
 
 .item-title {
-  color: $color-foreground;
+  color: $color-foreground-darker;
   font-size: 16px;
+  transition: color $transition-unit;
 }
 
 .item-description {
   margin-top: 10px;
+  line-height: 1.4;
 }
 
 .item-tags {
@@ -191,33 +205,23 @@ a {
 /* Tag */
 
 .tags {
-  &:before {
-    content: '#';
-    float: left;
-    margin-right: 4px;
-  }
   &:after {
     content: '';
     display: block;
     clear: both;
   }
-  font-size: 12px;
 }
 
 .tag {
+  @extend .button;
   float: left;
   &:before {
-    content: '';
+    content: '#';
     display: inline-block;
-  }
-  &:hover {
-    color: $color-foreground-darkest;
+    margin-right: 2px;
   }
 }
 
 .tag ~ .tag {
-  &:before {
-    content: ',';
-    margin-right: 6px;
-  }
+  margin-left: 6px;
 }

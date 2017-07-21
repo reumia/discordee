@@ -8,7 +8,7 @@ class Register extends Component {
         this.state = {
             title: '배틀그라운드 같이 합시다!',
             description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
-            tags: [{id: 1, text: '배틀그라운드'}, {id: 2, text: 'PUBG'}, {id: 3, text: 'BATTLEGROUND'}],
+            tags: [],
             createAt: '2017-07-20 00:00:00',
             addAt: '2017-07-21 00:00:00',
             isAdded: false

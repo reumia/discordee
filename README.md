@@ -9,11 +9,14 @@ discord 서버목록 검색 플랫폼.
 - 등록
     - 수동 등록 : 유저가 직접 등록
         - 서버이름, 태그, 초대코드
+        - 관리자에게 등록 승인 요청
     - 자동 등록 : discordee-bot 설치를 통한 자동 서버 등록
     - 검증 : 초대코드가 존재하는 코드인지 확인
 - 목록
     - Firebase Datebase 연동
     - [Fuse.js](http://fusejs.io/) 검색
+- 어드민
+    - 등록 승인
 
 # Create-react-app 매뉴얼
 

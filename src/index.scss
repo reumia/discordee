@@ -7,6 +7,7 @@ $color-background-lightest: lighten($color-background, 10);
 $color-background-darker: #2f3136;
 $color-background-darkest: #1e2124;
 $color-brand: #7289da;
+$color-danger: #da5866;
 $color-border: rgba(255,255,255,.1);
 $radius-unit: 4px;
 $transition-unit: 0.2s ease;
@@ -52,15 +53,6 @@ $spacing-unit: 15px;
   outline: 0;
 }
 
-.button {
-  @extend %form-init;
-  transition: color $transition-unit;
-  &:hover,
-  &:focus {
-    color: $color-foreground;
-  }
-}
-
 .input {
   @extend %form-init;
   padding: 0 $spacing-unit;
@@ -86,6 +78,41 @@ $spacing-unit: 15px;
 }
 :-ms-input-placeholder {
   color: $color-foreground-darkest;
+}
+
+.button {
+  @extend %form-init;
+  transition: color $transition-unit;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: $color-foreground;
+  }
+}
+
+.button-primary,
+.button-warning,
+.button-danger {
+  @extend .input;
+  width: auto;
+  .material-icons {
+    display: inline-block;
+    margin-left: -2px;
+    font-size: 14px;
+    vertical-align: top;
+  }
+}
+.button-primary {
+  background-color: $color-brand;
+}
+.button-danger {
+  background-color: $color-danger;
+}
+
+.button-wrap {
+  .button ~ .button {
+    margin-left: 4px;
+  }
 }
 
 .textarea {
@@ -254,7 +281,7 @@ a {
 
 .register {
   display: none;
-  margin-bottom: $spacing-unit*2;
+  margin: 0 0 $spacing-unit*2;
   &.active {
     display: block;
   }
@@ -262,7 +289,7 @@ a {
     margin-top: 4px;
   }
   .button-wrap {
-    margin-top: $spacing-unit;
+    margin-top: $spacing-unit*2;
   }
 }
 

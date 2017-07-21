@@ -62,8 +62,8 @@ class Register extends Component {
                             }}
                         />
                         <div className="button-wrap">
-                            <button className="button button-default">등록요청</button>
-                            <button className="button button-cancel">취소</button>
+                            <button className="button button-primary"><i className="material-icons">check</i> 등록요청</button>
+                            <button className="button button-danger"><i className="material-icons">clear</i> 취소</button>
                         </div>
                     </form>
                 </div>

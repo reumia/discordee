@@ -6,7 +6,25 @@ function Items (props) {
             <div className="item">
                 <div className="item-title">제목</div>
                 <div className="item-description">설명</div>
-                <div className="item-tags">
+                <div className="item-tags tags">
+                    <a href="#" className="tag">태그1</a>
+                    <a href="#" className="tag">태그2</a>
+                    <a href="#" className="tag">태그3</a>
+                </div>
+            </div>
+            <div className="item">
+                <div className="item-title">제목</div>
+                <div className="item-description">설명</div>
+                <div className="item-tags tags">
+                    <a href="#" className="tag">태그1</a>
+                    <a href="#" className="tag">태그2</a>
+                    <a href="#" className="tag">태그3</a>
+                </div>
+            </div>
+            <div className="item">
+                <div className="item-title">제목</div>
+                <div className="item-description">설명</div>
+                <div className="item-tags tags">
                     <a href="#" className="tag">태그1</a>
                     <a href="#" className="tag">태그2</a>
                     <a href="#" className="tag">태그3</a>

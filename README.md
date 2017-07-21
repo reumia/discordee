@@ -13,7 +13,7 @@ discord 서버목록 검색 플랫폼.
     - 자동 등록 : discordee-bot 설치를 통한 자동 서버 등록
     - 검증 : 초대코드가 존재하는 코드인지 확인
 - 목록
-    - Firebase Datebase 연동
+    - Firebase Datebase 연동 : [All you need is React & Firebase](https://www.codementor.io/yurio/all-you-need-is-react-firebase-4v7g9p4kf)
     - [Fuse.js](http://fusejs.io/) 검색
 - 어드민
     - 등록 승인

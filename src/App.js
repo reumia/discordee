@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import 'reset-css/_reset.scss';
-import './App.scss';
 
 class App extends Component {
     constructor() {
@@ -18,7 +16,14 @@ class App extends Component {
                     <span className="description">Discord Server Sharing Platform.</span>
                 </header>
                 <nav className="app-nav">
-
+                    <div className="app-nav-left">
+                        <input type="text" name="search" id="search" className="search input"/>
+                        <label htmlFor="search"><i className="material-icons">search</i></label>
+                    </div>
+                    <div className="app-nav-right">
+                        <button className="button"><i className="material-icons">add</i></button>
+                        <button className="button"><i className="material-icons">refresh</i></button>
+                    </div>
                 </nav>
                 <div className="app-body">
                     BODY

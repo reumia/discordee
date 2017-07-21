@@ -1,0 +1,138 @@
+$color-foreground: #fff;
+$color-foreground-darker: rgba(255,255,255,.6);
+$color-foreground-darkest: rgba(246,246,247,.3);
+$color-background: #36393e;
+$color-background-lighter: lighten($color-background, 10);
+$color-background-darker: #2f3136;
+$color-background-darkest: #1e2124;
+$color-brand: #7289da;
+$color-border: rgba(255,255,255,.1);
+$radius-unit: 4px;
+$transition-unit: 0.2s ease;
+$padding-unit: 15px;
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+  .button & {
+    display: block;
+  }
+}
+
+%form-init {
+  -webkit-appearance: none;
+  -webkit-text-size-adjust: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  color: $color-foreground-darkest;
+  font-size: 14px;
+  line-height: 1;
+  vertical-align: top;
+  outline: 0;
+}
+
+.button {
+  @extend %form-init;
+  transition: color $transition-unit;
+  &:hover,
+  &:focus {
+    color: $color-foreground;
+  }
+}
+
+.input {
+  @extend %form-init;
+  padding: 4px 8px;
+  border-radius: $radius-unit;
+  background-color: $color-background-lighter;
+}
+
+.search {
+  margin-right: 10px;
+  width: 200px;
+  transition: width $transition-unit;
+  &:focus {
+    width: 250px;
+    color: $color-foreground;
+  }
+}
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder {
+  color: $color-foreground-darkest;
+}
+
+html {
+  background-color: $color-background-darkest;
+  color: $color-foreground-darkest;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.app {
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 40px auto;
+  max-width: 1024px;
+  background-color: $color-background;
+}
+
+.app-header {
+  padding: $padding-unit;
+  background-color: $color-brand;
+  color: $color-foreground;
+  font-size: 16px;
+  .title {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  .description {
+    color: $color-foreground-darker;
+  }
+}
+
+.app-nav {
+  padding: $padding-unit;
+  background-color: $color-background-darker;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+.app-nav-left,
+.app-nav-right {
+  float: left;
+  width: 50%;
+}
+.app-nav-right {
+  text-align: right;
+  .button ~ .button {
+    margin-left: 10px;
+  }
+}
+
+.app-body {
+  padding: $padding-unit;
+}
+
+.app-footer {
+  padding: $padding-unit;
+  background-color: $color-background-darker;
+}

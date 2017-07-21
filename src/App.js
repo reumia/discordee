@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import './App.scss';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="app">
+                <header className="app-header">
+                    Discordee
+                </header>
+                <div className="app-body">
+                    BODY
+                </div>
+                <div className="app-footer">
+                    &copy; 2017 Discordee All right reserved.
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;

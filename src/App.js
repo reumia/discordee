@@ -6,7 +6,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isRegisterVisible: false,
+            isRegisterVisible: true,
             items: {
                 one: {
                     title: '배틀그라운드 같이 합시다!',
@@ -56,8 +56,10 @@ class App extends Component {
                 </header>
                 <nav className="app-nav">
                     <div className="app-nav-left">
-                        <input type="text" name="search" id="search" className="search input"/>
-                        <label htmlFor="search"><i className="material-icons">search</i></label>
+                        <div className="search">
+                            <input type="text" name="search" id="search" className="input search-input"/>
+                            <label className="search-label" htmlFor="search"><i className="material-icons">search</i></label>
+                        </div>
                     </div>
                     <div className="app-nav-right">
                         <button className="button" onClick={this.toggleRegister}><i className="material-icons">add</i></button>

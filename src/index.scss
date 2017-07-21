@@ -2,7 +2,8 @@ $color-foreground: #fff;
 $color-foreground-darker: rgba(255,255,255,.6);
 $color-foreground-darkest: rgba(246,246,247,.3);
 $color-background: #36393e;
-$color-background-lighter: lighten($color-background, 10);
+$color-background-lighter: lighten($color-background, 3);
+$color-background-lightest: lighten($color-background, 10);
 $color-background-darker: #2f3136;
 $color-background-darkest: #1e2124;
 $color-brand: #7289da;
@@ -65,30 +66,31 @@ $spacing-unit: 15px;
   padding: 0 $spacing-unit;
   width: 100%;
   height: 34px;
-  border: 1px solid $color-background-lighter;
   border-radius: $radius-unit;
   background-color: $color-background-lighter;
   color: $color-foreground-darker;
   transition:
           width $transition-unit,
-          color $transition-unit;
+          color $transition-unit,
+          background-color $transition-unit;
   &:focus {
+    background-color: $color-background-lightest;
     color: $color-foreground;
   }
-  &::-webkit-input-placeholder {
-    color: $color-foreground-darkest;
-  }
-  &::-moz-placeholder {
-    color: $color-foreground-darkest;
-  }
-  &:-ms-input-placeholder {
-    color: $color-foreground-darkest;
-  }
+}
+::-webkit-input-placeholder {
+  color: $color-foreground-darkest;
+}
+::-moz-placeholder {
+  color: $color-foreground-darkest;
+}
+:-ms-input-placeholder {
+  color: $color-foreground-darkest;
 }
 
 .textarea {
   @extend .input;
-  padding: $spacing-unit;
+  padding: 10px $spacing-unit;
   height: auto;
   resize: none;
 }
@@ -117,12 +119,13 @@ a {
 
 .app {
   overflow: hidden;
-  margin: 40px auto;
   max-width: 800px;
+  @media screen and (min-width: 600px) {
+    margin: 40px auto;
+  }
 }
 
 .app-header {
-  border-radius: $radius-unit $radius-unit 0 0;
   padding: $spacing-unit;
   background-color: $color-brand;
   color: $color-foreground;
@@ -134,6 +137,9 @@ a {
   .description {
     color: $color-foreground-darker;
   }
+  @media screen and (min-width: 600px) {
+    border-radius: $radius-unit $radius-unit 0 0;
+  }
 }
 
 .app-nav {
@@ -144,14 +150,24 @@ a {
     display: block;
     clear: both;
   }
+  .button {
+    margin: 5px 0 5px 10px;
+  }
   .search {
+    position: relative;
+    display: inline-block;
+  }
+  .search-input {
+    padding-right: 34px;
     width: 200px;
     &:focus {
       width: 250px;
     }
   }
-  .material-icons {
-    margin: 5px 0 5px 10px;
+  .search-label {
+    position: absolute;
+    top: 5px;
+    right: 5px;
   }
 }
 .app-nav-left,
@@ -164,11 +180,13 @@ a {
 }
 
 .app-body {
-  border-radius: 0 0 $radius-unit $radius-unit;
-  padding: $spacing-unit*3 $spacing-unit*2 $spacing-unit*2;
+  padding: $spacing-unit*2;
   background-color: $color-background-darker;
   .title {
     margin-bottom: $spacing-unit;
+  }
+  @media screen and (min-width: 600px) {
+    border-radius: 0 0 $radius-unit $radius-unit;
   }
 }
 
@@ -187,18 +205,7 @@ a {
 .item {
   border-radius: $radius-unit;
   padding: $spacing-unit;
-  border: 1px solid $color-border;
   background-color: $color-background;
-  transition:
-          border-color $transition-unit,
-          background-color $transition-unit;
-  &:hover {
-    border-color: $color-foreground-darkest;
-    background-color: $color-background-lighter;
-    .item-title {
-      color: $color-foreground;
-    }
-  }
 }
 
 .item ~ .item {
@@ -252,6 +259,37 @@ a {
     display: block;
   }
   .label ~ .label {
+    margin-top: 4px;
+  }
+  .button-wrap {
     margin-top: $spacing-unit;
   }
+}
+
+/* Tag Form */
+
+.tag-form {
+}
+
+.tag-selected {
+  overflow: hidden;
+}
+
+.tag-input-wrap {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.tag-item {
+  @extend .input;
+  display: inline-block;
+  padding: 11px 5px 9px 10px;
+  margin-top: 4px;
+  margin-right: 4px;
+  width: auto;
+}
+
+.tag-item-remove {
+  padding: 4px 5px;
+  margin-left: 2px;
 }

@@ -11,6 +11,7 @@ $radius-unit: 4px;
 $transition-unit: 0.2s ease;
 $padding-unit: 15px;
 
+// https://material.io/icons/
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -59,23 +60,33 @@ $padding-unit: 15px;
 .input {
   @extend %form-init;
   padding: 4px 8px;
+  border: 1px solid $color-background-lighter;
   border-radius: $radius-unit;
   background-color: $color-background-lighter;
+  color: $color-foreground-darker;
+  transition:
+          width $transition-unit,
+          color $transition-unit;
+  &:focus {
+    color: $color-foreground;
+  }
+  &::-webkit-input-placeholder {
+    color: $color-foreground-darkest;
+  }
+  &::-moz-placeholder {
+    color: $color-foreground-darkest;
+  }
+  &:-ms-input-placeholder {
+    color: $color-foreground-darkest;
+  }
 }
 
 .search {
   margin-right: 10px;
   width: 200px;
-  transition: width $transition-unit;
   &:focus {
     width: 250px;
-    color: $color-foreground;
   }
-}
-::-webkit-input-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder {
-  color: $color-foreground-darkest;
 }
 
 html {

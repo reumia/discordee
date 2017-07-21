@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Items from './Items';
 
 class App extends Component {
     constructor() {
@@ -17,7 +18,7 @@ class App extends Component {
                 </header>
                 <nav className="app-nav">
                     <div className="app-nav-left">
-                        <input type="text" name="search" id="search" className="search input"/>
+                        <input type="text" name="search" id="search" className="search input" placeholder="검색어를 입력해주세요."/>
                         <label htmlFor="search"><i className="material-icons">search</i></label>
                     </div>
                     <div className="app-nav-right">
@@ -26,7 +27,7 @@ class App extends Component {
                     </div>
                 </nav>
                 <div className="app-body">
-                    BODY
+                    <Items/>
                 </div>
                 <div className="app-footer">
                     &copy; 2017 Discordee All right reserved.

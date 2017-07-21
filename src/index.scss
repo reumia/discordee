@@ -9,7 +9,7 @@ $color-brand: #7289da;
 $color-border: rgba(255,255,255,.1);
 $radius-unit: 4px;
 $transition-unit: 0.2s ease;
-$padding-unit: 15px;
+$spacing-unit: 15px;
 
 /* Material Icons : https://material.io/icons */
 
@@ -105,14 +105,13 @@ a {
 
 .app {
   overflow: hidden;
-  border-radius: 4px;
   margin: 40px auto;
   max-width: 800px;
-  background-color: $color-background;
 }
 
 .app-header {
-  padding: $padding-unit;
+  border-radius: $radius-unit $radius-unit 0 0;
+  padding: $spacing-unit;
   background-color: $color-brand;
   color: $color-foreground;
   font-size: 16px;
@@ -126,7 +125,7 @@ a {
 }
 
 .app-nav {
-  padding: $padding-unit*2 $padding-unit*2 0;
+  padding: $spacing-unit*2 $spacing-unit*2 0;
   background-color: $color-background-darker;
   &:after {
     content: '';
@@ -153,13 +152,17 @@ a {
 }
 
 .app-body {
-  padding: $padding-unit*3 $padding-unit*2 0;
+  border-radius: 0 0 $radius-unit $radius-unit;
+  padding: $spacing-unit*3 $spacing-unit*2 $spacing-unit*2;
   background-color: $color-background-darker;
+  .title {
+    margin-bottom: $spacing-unit;
+  }
 }
 
 .app-footer {
-  padding: $padding-unit*2;
-  background-color: $color-background-darker;
+  padding: $spacing-unit*2;
+  background-color: $color-background-darkest;
   text-align: center;
 }
 
@@ -171,8 +174,7 @@ a {
 
 .item {
   border-radius: $radius-unit;
-  margin-top: $padding-unit;
-  padding: $padding-unit;
+  padding: $spacing-unit;
   border: 1px solid $color-border;
   background-color: $color-background;
   transition:
@@ -185,6 +187,10 @@ a {
       color: $color-foreground;
     }
   }
+}
+
+.item ~ .item {
+  margin-top: $spacing-unit;
 }
 
 .item-title {
@@ -213,7 +219,6 @@ a {
 }
 
 .tag {
-  @extend .button;
   float: left;
   &:before {
     content: '#';

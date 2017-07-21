@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Items from './Items';
+import Item from './Item';
 
 class App extends Component {
     constructor() {
@@ -35,6 +35,13 @@ class App extends Component {
     }
 
     render() {
+        const data = this.state.items;
+        const ItemList = Object.keys(data).map((key) => {
+            return (
+                <Item data={data[key]} key={key}/>
+            )
+        });
+
         return (
             <div className="app">
                 <header className="app-header">
@@ -53,7 +60,9 @@ class App extends Component {
                 </nav>
                 <div className="app-body">
                     <div className="title">최근에 추가된 서버</div>
-                    <Items data={this.state.items}/>
+                    <div className="items">
+                        {ItemList}
+                    </div>
                 </div>
                 <div className="app-footer">
                     &copy; 2017 Discordee All right reserved.

@@ -1,20 +1,5 @@
 import React from 'react';
 
-function Items (props) {
-    const data = props.data;
-    const ItemList = Object.keys(data).map((key) => {
-        return (
-            <Item data={data[key]} key={key}/>
-        )
-    });
-
-    return (
-        <div className="items">
-            {ItemList}
-        </div>
-    )
-}
-
 function Item (props) {
     const data = props.data;
     const tagData = data.tags;
@@ -38,8 +23,8 @@ function Item (props) {
 function Tag (props) {
     const data = props.data;
     return (
-        <button className="tag">{data}</button>
+        <span className="tag">{data}</span>
     )
 }
 
-export default Items;
+export default Item;

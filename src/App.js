@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import Item from './Item';
+import Register from './Register';
 
 class App extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
+            isRegisterVisible: false,
             items: {
                 one: {
                     title: '배틀그라운드 같이 합시다!',
@@ -34,6 +36,10 @@ class App extends Component {
         }
     }
 
+    toggleRegister = () => {
+        this.setState({isRegisterVisible: this.state.isRegisterVisible === false});
+    }
+
     render() {
         const data = this.state.items;
         const ItemList = Object.keys(data).map((key) => {
@@ -54,11 +60,12 @@ class App extends Component {
                         <label htmlFor="search"><i className="material-icons">search</i></label>
                     </div>
                     <div className="app-nav-right">
-                        <button className="button"><i className="material-icons">add</i></button>
+                        <button className="button" onClick={this.toggleRegister}><i className="material-icons">add</i></button>
                         <button className="button"><i className="material-icons">refresh</i></button>
                     </div>
                 </nav>
                 <div className="app-body">
+                    <Register isVisible={this.state.isRegisterVisible}/>
                     <div className="title">최근에 추가된 서버</div>
                     <div className="items">
                         {ItemList}

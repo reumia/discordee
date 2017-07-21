@@ -18,7 +18,7 @@ class App extends Component {
                 </header>
                 <nav className="app-nav">
                     <div className="app-nav-left">
-                        <input type="text" name="search" id="search" className="search input" placeholder="검색어를 입력해주세요."/>
+                        <input type="text" name="search" id="search" className="search input"/>
                         <label htmlFor="search"><i className="material-icons">search</i></label>
                     </div>
                     <div className="app-nav-right">

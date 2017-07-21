@@ -59,7 +59,8 @@ $padding-unit: 15px;
 
 .input {
   @extend %form-init;
-  padding: 4px 8px;
+  padding: 0 15px;
+  height: 34px;
   border: 1px solid $color-background-lighter;
   border-radius: $radius-unit;
   background-color: $color-background-lighter;
@@ -81,19 +82,11 @@ $padding-unit: 15px;
   }
 }
 
-.search {
-  margin-right: 10px;
-  width: 200px;
-  &:focus {
-    width: 250px;
-  }
-}
-
 html {
   background-color: $color-background-darkest;
   color: $color-foreground-darkest;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1;
 }
 
 .app {
@@ -126,6 +119,15 @@ html {
     display: block;
     clear: both;
   }
+  .search {
+    width: 200px;
+    &:focus {
+      width: 250px;
+    }
+  }
+  .material-icons {
+    margin: 5px 0 5px 10px;
+  }
 }
 .app-nav-left,
 .app-nav-right {
@@ -134,9 +136,6 @@ html {
 }
 .app-nav-right {
   text-align: right;
-  .button ~ .button {
-    margin-left: 10px;
-  }
 }
 
 .app-body {

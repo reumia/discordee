@@ -82,7 +82,9 @@ $spacing-unit: 15px;
 
 .button {
   @extend %form-init;
-  transition: color $transition-unit;
+  transition:
+          color $transition-unit,
+          background-color $transition-unit;
   cursor: pointer;
   &:hover,
   &:focus {
@@ -104,14 +106,29 @@ $spacing-unit: 15px;
 }
 .button-primary {
   background-color: $color-brand;
+  &:focus {
+    background-color: lighten($color-brand, 5);
+  }
 }
 .button-danger {
   background-color: $color-danger;
+  &:focus {
+    background-color: lighten($color-danger, 5);
+  }
 }
 
 .button-wrap {
   .button ~ .button {
     margin-left: 4px;
+  }
+}
+
+.button-group {
+  overflow: hidden;
+  border-radius: $radius-unit;
+  .button {
+    border-radius: 0;
+    width: 50%;
   }
 }
 
@@ -125,6 +142,17 @@ $spacing-unit: 15px;
 
 .label {
   display: block;
+}
+
+.form {
+  overflow: hidden;
+  border-radius: $radius-unit;
+  .input,
+  .text-area,
+  .button,
+  .button-group {
+    border-radius: 0;
+  }
 }
 
 /* Grid */
@@ -273,17 +301,12 @@ a {
 .register {
   display: none;
   margin: 0 0 $spacing-unit*2;
+  max-width: 400px;
   &.active {
     display: block;
   }
-  .title {
+  .button-group {
     margin-top: $spacing-unit;
-  }
-  .label ~ .label {
-    margin-top: 4px;
-  }
-  .button-wrap {
-    margin-top: 4px;
   }
 }
 
@@ -294,20 +317,25 @@ a {
 
 .tag-selected {
   overflow: hidden;
+  background-color: $color-background;
 }
 
 .tag-input-wrap {
-  display: inline-block;
-  margin-top: 4px;
+  display: block;
+}
+
+.tag-item ~ .tag-input-wrap {
+  margin-top: 8px;
 }
 
 .tag-item {
   @extend .input;
   display: inline-block;
-  padding: 11px 5px 9px 10px;
-  margin-top: 4px;
-  margin-right: 4px;
+  padding: 8px 5px 6px 10px;
+  margin: 8px 0 0 8px;
   width: auto;
+  height: auto;
+  font-size: 13px;
 }
 
 .tag-item-remove {

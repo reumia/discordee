@@ -6,8 +6,8 @@ class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '배틀그라운드 같이 합시다!',
-            description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
+            title: '',
+            description: '',
             tags: [],
             createAt: '2017-07-20 00:00:00',
             addAt: '2017-07-21 00:00:00',
@@ -30,6 +30,10 @@ class Register extends Component {
         this.setState({tags: tags});
     }
 
+    handleChange = (event) => {
+        console.log(event);
+    }
+
     render() {
         const classes = classNames({
             register: true,
@@ -42,10 +46,28 @@ class Register extends Component {
                 <div className="form">
                     <form action="">
                         <label className="label" htmlFor="title">
-                            <input type="text" className="input" id="title" name="title" placeholder="서버 이름을 입력해주세요."/>
+                            <input
+                                type="text"
+                                className="input"
+                                id="title"
+                                name="title"
+                                placeholder="서버 이름을 입력해주세요."
+                                value={this.state.title}
+                                onChange={this.handleChange}
+                            />
                         </label>
                         <label className="label" htmlFor="description">
-                            <textarea name="description" id="description" cols="30" rows="3" className="textarea" placeholder="서버에 대한 설명을 입력해주세요."/>
+                            <textarea
+                                name="description"
+                                id="description"
+                                cols="30"
+                                rows="3"
+                                className="textarea"
+                                placeholder="서버에 대한 설명을 입력해주세요."
+                                onChange={this.handleChange}
+                            >
+                                {this.state.description}
+                            </textarea>
                         </label>
                         <ReactTags
                             tags={this.state.tags}
@@ -62,8 +84,8 @@ class Register extends Component {
                             }}
                         />
                         <div className="button-wrap">
-                            <button className="button button-primary"><i className="material-icons">check</i> 등록요청</button>
-                            <button className="button button-danger"><i className="material-icons">clear</i> 취소</button>
+                            <button className="button button-primary" type="submit"><i className="material-icons">check</i> 등록요청</button>
+                            <button className="button button-danger" type="button"><i className="material-icons">clear</i> 취소</button>
                         </div>
                     </form>
                 </div>

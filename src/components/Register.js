@@ -83,55 +83,55 @@ class Register extends Component {
                 <div className="title">서버 추가하기</div>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form">
-                    <label className="label">
-                        <input
-                            type="text"
-                            className="input"
-                            name="title"
-                            placeholder="서버 이름을 입력해주세요."
-                            value={this.state.title}
-                            onChange={this.handleInputChange}
+                        <label className="label">
+                            <input
+                                type="text"
+                                className="input"
+                                name="title"
+                                placeholder="서버 이름을 입력해주세요."
+                                value={this.state.title}
+                                onChange={this.handleInputChange}
+                            />
+                        </label>
+                        <label className="label">
+                            <input
+                                type="text"
+                                className="input"
+                                name="code"
+                                placeholder="서버 초대코드를 입력해주세요."
+                                value={this.state.code}
+                                onChange={this.handleInputChange}
+                            />
+                        </label>
+                        <label className="label">
+                            <textarea
+                                cols="30"
+                                rows="3"
+                                name="description"
+                                className="textarea"
+                                placeholder="서버에 대한 설명을 입력해주세요."
+                                onChange={this.handleInputChange}
+                                value={this.state.description}
+                            />
+                        </label>
+                        <ReactTags
+                            tags={this.state.tags}
+                            handleDelete={this.handleDelete}
+                            handleAddition={this.handleAddition}
+                            placeholder="태그를 추가해 주세요."
+                            classNames={{
+                                tags: 'tag-form',
+                                tagInput: 'tag-input-wrap',
+                                tagInputField: 'input tag-input',
+                                selected: 'tag-selected',
+                                tag: 'tag-item',
+                                remove: 'tag-item-remove'
+                            }}
                         />
-                    </label>
-                    <label className="label">
-                        <input
-                            type="text"
-                            className="input"
-                            name="code"
-                            placeholder="서버 초대코드를 입력해주세요."
-                            value={this.state.code}
-                            onChange={this.handleInputChange}
-                        />
-                    </label>
-                    <label className="label">
-                        <textarea
-                            cols="30"
-                            rows="3"
-                            name="description"
-                            className="textarea"
-                            placeholder="서버에 대한 설명을 입력해주세요."
-                            onChange={this.handleInputChange}
-                            value={this.state.description}
-                        />
-                    </label>
-                    <ReactTags
-                        tags={this.state.tags}
-                        handleDelete={this.handleDelete}
-                        handleAddition={this.handleAddition}
-                        placeholder="태그를 추가해 주세요."
-                        classNames={{
-                            tags: 'tag-form',
-                            tagInput: 'tag-input-wrap',
-                            tagInputField: 'input tag-input',
-                            selected: 'tag-selected',
-                            tag: 'tag-item',
-                            remove: 'tag-item-remove'
-                        }}
-                    />
-                    </div>
-                    <div className="button-group">
-                        <button className="button button-primary" type="submit"><i className="material-icons">check</i> 등록요청</button>
-                        <button className="button button-danger" type="button"><i className="material-icons">clear</i> 취소</button>
+                        <div className="button-group button-group-half">
+                            <button className="button button-primary" type="submit"><i className="material-icons">check</i> 등록요청</button>
+                            <button className="button button-danger" type="button"><i className="material-icons">clear</i> 취소</button>
+                        </div>
                     </div>
                 </form>
             </div>

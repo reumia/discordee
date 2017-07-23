@@ -92,6 +92,7 @@ $spacing-unit: 15px;
   }
 }
 
+.button-default,
 .button-primary,
 .button-warning,
 .button-danger {
@@ -127,7 +128,15 @@ $spacing-unit: 15px;
   overflow: hidden;
   border-radius: $radius-unit;
   .button {
+    display: block;
+    width: 100%;
     border-radius: 0;
+  }
+}
+
+.button-group-half {
+  .button {
+    float: left;
     width: 50%;
   }
 }
@@ -249,9 +258,14 @@ a {
 }
 
 .item {
+  overflow: hidden;
   border-radius: $radius-unit;
   padding: $spacing-unit;
   background-color: $color-background;
+  .button-group {
+    float: right;
+    margin-left: $spacing-unit*2;
+  }
 }
 
 .item ~ .item {
@@ -301,12 +315,8 @@ a {
 .register {
   display: none;
   margin: 0 0 $spacing-unit*2;
-  max-width: 400px;
   &.active {
     display: block;
-  }
-  .button-group {
-    margin-top: $spacing-unit;
   }
 }
 

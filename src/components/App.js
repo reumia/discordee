@@ -8,41 +8,16 @@ class App extends Component {
         super(props);
         this.state = {
             isRegisterVisible: true,
-            servers: {
-                one: {
-                    title: '배틀그라운드 같이 합시다!',
-                    description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
-                    tags: ['배틀그라운드', 'PUBG', 'BATTLEGROUND'],
-                    createAt: '2017-07-20 00:00:00',
-                    addAt: '2017-07-21 00:00:00',
-                    isAdded: false
-                },
-                two: {
-                    title: '제목',
-                    description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
-                    tags: ['배틀그라운드', 'PUBG', 'BATTLEGROUND'],
-                    createAt: '2017-07-20 00:00:00',
-                    addAt: '2017-07-21 00:00:00',
-                    isAdded: false
-                },
-                three: {
-                    title: '제목',
-                    description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
-                    tags: ['배틀그라운드', 'PUBG', 'BATTLEGROUND'],
-                    createAt: '2017-07-20 00:00:00',
-                    addAt: '2017-07-21 00:00:00',
-                    isAdded: false
-                }
-            }
+            servers: []
         }
     }
 
     componentWillMount(){
         let serversRef = fire.database().ref('servers').orderByKey().limitToLast(100);
         serversRef.on('child_added', snapshot => {
-            console.log(snapshot);
-            // let server = { text: snapshot.val(), id: snapshot.key };
-            // this.setState({ servers: [server].concat(this.state.servers) });
+            let server = snapshot.val();
+            server.id = snapshot.key;
+            this.setState({ servers: [server].concat(this.state.servers) });
         })
     }
 
@@ -52,9 +27,9 @@ class App extends Component {
 
     render() {
         const data = this.state.servers;
-        const ItemList = Object.keys(data).map((key) => {
+        const ItemList = data.map((item, key) => {
             return (
-                <Item data={data[key]} key={key}/>
+                <Item data={item} key={key}/>
             )
         });
 

@@ -9,6 +9,7 @@ class Register extends Component {
         super(props);
         this.state = {
             title: '',
+            code: '',
             description: '',
             tags: [],
             createAt: '',
@@ -45,8 +46,30 @@ class Register extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        this.setState({ createAt: moment().format('YYYY-MM-DD HH:mm:ss') });
+        const currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
+        this.setState(
+            {
+                createAt: currentTime
+            },
+            this.updateDatabase
+        );
+    }
+
+    updateDatabase = () => {
         fire.database().ref('servers').push( this.state );
+        this.resetForm();
+    }
+
+    resetForm = () => {
+        this.setState({
+            title: '',
+            code: '',
+            description: '',
+            tags: [],
+            createAt: '',
+            addAt: null,
+            isAdded: false
+        });
     }
 
     render() {
@@ -60,23 +83,31 @@ class Register extends Component {
                 <div className="title">서버 추가하기</div>
                 <div className="form">
                     <form onSubmit={this.handleSubmit}>
-                        <label className="label" htmlFor="title">
+                        <label className="label">
                             <input
                                 type="text"
                                 className="input"
-                                id="title"
                                 name="title"
                                 placeholder="서버 이름을 입력해주세요."
                                 value={this.state.title}
                                 onChange={this.handleInputChange}
                             />
                         </label>
-                        <label className="label" htmlFor="description">
+                        <label className="label">
+                            <input
+                                type="text"
+                                className="input"
+                                name="code"
+                                placeholder="서버 초대코드를 입력해주세요."
+                                value={this.state.code}
+                                onChange={this.handleInputChange}
+                            />
+                        </label>
+                        <label className="label">
                             <textarea
-                                name="description"
-                                id="description"
                                 cols="30"
                                 rows="3"
+                                name="description"
                                 className="textarea"
                                 placeholder="서버에 대한 설명을 입력해주세요."
                                 onChange={this.handleInputChange}

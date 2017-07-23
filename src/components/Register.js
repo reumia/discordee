@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import fire from '../utils/fire';
+import moment from 'moment';
 import classNames from 'classnames';
 import { WithContext as ReactTags } from 'react-tag-input';
 
@@ -9,8 +11,8 @@ class Register extends Component {
             title: '',
             description: '',
             tags: [],
-            createAt: '2017-07-20 00:00:00',
-            addAt: '2017-07-21 00:00:00',
+            createAt: '',
+            addAt: null,
             isAdded: false
         }
     }
@@ -30,8 +32,21 @@ class Register extends Component {
         this.setState({tags: tags});
     }
 
-    handleChange = (event) => {
-        console.log(event);
+    handleInputChange = (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        this.setState({ createAt: moment().format('YYYY-MM-DD HH:mm:ss') });
+        fire.database().ref('servers').push( this.state );
     }
 
     render() {
@@ -44,7 +59,7 @@ class Register extends Component {
             <div className={classes}>
                 <div className="title">서버 추가하기</div>
                 <div className="form">
-                    <form action="">
+                    <form onSubmit={this.handleSubmit}>
                         <label className="label" htmlFor="title">
                             <input
                                 type="text"
@@ -53,7 +68,7 @@ class Register extends Component {
                                 name="title"
                                 placeholder="서버 이름을 입력해주세요."
                                 value={this.state.title}
-                                onChange={this.handleChange}
+                                onChange={this.handleInputChange}
                             />
                         </label>
                         <label className="label" htmlFor="description">
@@ -64,10 +79,9 @@ class Register extends Component {
                                 rows="3"
                                 className="textarea"
                                 placeholder="서버에 대한 설명을 입력해주세요."
-                                onChange={this.handleChange}
-                            >
-                                {this.state.description}
-                            </textarea>
+                                onChange={this.handleInputChange}
+                                value={this.state.description}
+                            />
                         </label>
                         <ReactTags
                             tags={this.state.tags}

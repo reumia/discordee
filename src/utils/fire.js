@@ -1,11 +1,12 @@
 import firebase from 'firebase'
 
 const config = {
-    apiKey: "unreadablestuff",
-    authDomain: "your-domain-name.firebaseapp.com",
-    databaseURL: "https://your-domain-name.firebaseio.com",
-    storageBucket: "your-domain-name.appspot.com",
-    messagingSenderId: "123123123123"
+    apiKey: "AIzaSyBtZ0nnmpB1GYZpWeE4Ko1bvNeHtXGtnVE",
+    authDomain: "discordee-dd480.firebaseapp.com",
+    databaseURL: "https://discordee-dd480.firebaseio.com",
+    projectId: "discordee-dd480",
+    storageBucket: "discordee-dd480.appspot.com",
+    messagingSenderId: "963322228015"
 };
 
 const fire = firebase.initializeApp(config);

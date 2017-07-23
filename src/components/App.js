@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import fire from '../utils/fire';
 import Item from './Item';
 import Register from './Register';
 
@@ -7,7 +8,7 @@ class App extends Component {
         super(props);
         this.state = {
             isRegisterVisible: true,
-            items: {
+            servers: {
                 one: {
                     title: '배틀그라운드 같이 합시다!',
                     description: '설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요. 설명글입니다. 이곳에 설명을 넣으면 이렇게 나옵니다. 글자가 길어도 계속 나옵니다. 행간을 적용하여야겠군요.',
@@ -36,12 +37,21 @@ class App extends Component {
         }
     }
 
+    componentWillMount(){
+        let serversRef = fire.database().ref('servers').orderByKey().limitToLast(100);
+        serversRef.on('child_added', snapshot => {
+            console.log(snapshot);
+            // let server = { text: snapshot.val(), id: snapshot.key };
+            // this.setState({ servers: [server].concat(this.state.servers) });
+        })
+    }
+
     toggleRegister = () => {
         this.setState({isRegisterVisible: this.state.isRegisterVisible === false});
     }
 
     render() {
-        const data = this.state.items;
+        const data = this.state.servers;
         const ItemList = Object.keys(data).map((key) => {
             return (
                 <Item data={data[key]} key={key}/>

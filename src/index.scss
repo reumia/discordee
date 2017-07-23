@@ -127,6 +127,19 @@ $spacing-unit: 15px;
   display: block;
 }
 
+/* Grid */
+
+.row {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+.col {
+  float: left;
+}
+
 /* Layout */
 
 html {
@@ -147,10 +160,8 @@ a {
 
 .app {
   overflow: hidden;
+  margin: 0 auto;
   max-width: 800px;
-  @media screen and (min-width: 600px) {
-    margin: 40px auto;
-  }
 }
 
 .app-header {
@@ -165,19 +176,11 @@ a {
   .description {
     color: $color-foreground-darker;
   }
-  @media screen and (min-width: 600px) {
-    border-radius: $radius-unit $radius-unit 0 0;
-  }
 }
 
 .app-nav {
   padding: $spacing-unit*2 $spacing-unit*2 0;
   background-color: $color-background-darker;
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
   .button {
     margin: 5px 0 5px 10px;
   }
@@ -188,9 +191,6 @@ a {
   .search-input {
     padding-right: 34px;
     width: 200px;
-    &:focus {
-      width: 250px;
-    }
   }
   .search-label {
     position: absolute;
@@ -198,23 +198,13 @@ a {
     right: 5px;
   }
 }
-.app-nav-left,
-.app-nav-right {
-  float: left;
-  width: 50%;
-}
-.app-nav-right {
-  text-align: right;
-}
 
 .app-body {
+  overflow: auto;
   padding: $spacing-unit*2;
   background-color: $color-background-darker;
   .title {
     margin-bottom: $spacing-unit;
-  }
-  @media screen and (min-width: 600px) {
-    border-radius: 0 0 $radius-unit $radius-unit;
   }
 }
 
@@ -285,6 +275,9 @@ a {
   margin: 0 0 $spacing-unit*2;
   &.active {
     display: block;
+  }
+  .title {
+    margin-top: $spacing-unit;
   }
   .label ~ .label {
     margin-top: 4px;

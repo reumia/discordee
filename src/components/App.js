@@ -28,9 +28,11 @@ class App extends Component {
     render() {
         const data = this.state.servers;
         const ItemList = data.map((item, key) => {
-            return (
-                <Item data={item} key={key}/>
-            )
+            if (item.isAdded) {
+                return (
+                    <Item data={item} key={key}/>
+                )
+            }
         });
 
         return (
@@ -40,15 +42,17 @@ class App extends Component {
                     <span className="description">Discord Server Sharing Platform.</span>
                 </header>
                 <nav className="app-nav">
-                    <div className="app-nav-left">
-                        <div className="search">
-                            <input type="text" name="search" id="search" className="input search-input"/>
-                            <label className="search-label" htmlFor="search"><i className="material-icons">search</i></label>
+                    <div className="row">
+                        <div className="col">
+                            <div className="search">
+                                <input type="text" name="search" id="search" className="input search-input"/>
+                                <label className="search-label" htmlFor="search"><i className="material-icons">search</i></label>
+                            </div>
                         </div>
-                    </div>
-                    <div className="app-nav-right">
-                        <button className="button" onClick={this.toggleRegister}><i className="material-icons">add</i></button>
-                        <button className="button"><i className="material-icons">refresh</i></button>
+                        <div className="col">
+                            <button className="button" onClick={this.toggleRegister}><i className="material-icons">add</i></button>
+                            <button className="button"><i className="material-icons">refresh</i></button>
+                        </div>
                     </div>
                 </nav>
                 <div className="app-body">

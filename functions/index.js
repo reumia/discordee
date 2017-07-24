@@ -1,11 +1,8 @@
 const functions = require('firebase-functions');
 const request = require('request');
-const cors = require('cors');
-const express = require('express');
-const app = express();
+const cors = require('cors')({origin: true});
 
-app.use(cors);
-app.get('*', (req, res) => {
+exports.auth = functions.https.onRequest((req, res) => {
     console.log(req, res);
 
     return request.get({
@@ -24,5 +21,3 @@ app.get('*', (req, res) => {
         console.log(res.headers);
     })
 });
-
-exports.auth = functions.https.onRequest(app);

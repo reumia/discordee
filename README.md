@@ -8,7 +8,8 @@ discord 서버목록 검색 플랫폼.
 - [Fuse.js - fuzzy search library](http://fusejs.io/)
 - [Making a Discord Bot](https://newagesoldier.com/making-a-discord-bot/)
     - [Heroku Node.js Server](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
-    
+- [Enabling CORS in Cloud Functions for Firebase](https://stackoverflow.com/questions/42755131/enabling-cors-in-cloud-functions-for-firebase)
+- [Cloud Functions for Firebase and third party api](https://stackoverflow.com/questions/43967510/cloud-functions-for-firebase-and-third-party-api)
 
 # Create-react-app 매뉴얼
 

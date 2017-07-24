@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import querystring from 'querystring';
 import fire from '../utils/fire';
 import Item from './Item';
 import Register from './Register';
@@ -26,20 +25,17 @@ class App extends Component {
     handleRegister = () => {
         // this.setState({isRegisterVisible: this.state.isRegisterVisible === false});
         axios({
-            headers: {"Access-Control-Allow-Origin": "*"}
-        });
-
-        axios.get('https://discordapp.com/api/oauth2/authorize', {
-            params: {
-                'client_id': '337506226680102914'
+            method: 'get',
+            url: 'http://localhost:5002/discordee-dd480/us-central1/auth',
+            headers: {
+                'Access-Control-Allow-Origin': "*"
             }
+        }).then(function (response) {
+            console.log(response);
         })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 
     render() {

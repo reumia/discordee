@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import querystring from 'querystring';
 import fire from '../utils/fire';
 import Item from './Item';
 import Register from './Register';
@@ -21,8 +23,23 @@ class App extends Component {
         })
     }
 
-    toggleRegister = () => {
-        this.setState({isRegisterVisible: this.state.isRegisterVisible === false});
+    handleRegister = () => {
+        // this.setState({isRegisterVisible: this.state.isRegisterVisible === false});
+        axios({
+            headers: {"Access-Control-Allow-Origin": "*"}
+        });
+
+        axios.get('https://discordapp.com/api/oauth2/authorize', {
+            params: {
+                'client_id': '337506226680102914'
+            }
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     render() {
@@ -50,7 +67,7 @@ class App extends Component {
                             </div>
                         </div>
                         <div className="col">
-                            <button className="button" onClick={this.toggleRegister}><i className="material-icons">add</i></button>
+                            <button className="button" onClick={this.handleRegister}><i className="material-icons">add</i></button>
                             <button className="button"><i className="material-icons">refresh</i></button>
                         </div>
                     </div>

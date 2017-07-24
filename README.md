@@ -6,6 +6,7 @@ discord 서버목록 검색 플랫폼.
 - [Material Icons](https://material.io/icons/)
 - [All you need is React & Firebase](https://www.codementor.io/yurio/all-you-need-is-react-firebase-4v7g9p4kf)
 - [Fuse.js - fuzzy search library](http://fusejs.io/)
+- [Making a Discord Bot](https://newagesoldier.com/making-a-discord-bot/)
 
 # Create-react-app 매뉴얼
 

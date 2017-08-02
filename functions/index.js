@@ -1,14 +1,43 @@
 const functions = require('firebase-functions');
 const fetch = require('node-fetch');
 const btoa = require('btoa');
+const store = require('store');
 
-const API_ROOT = 'https://us-central1-discordee-dd480.cloudfunctions.net';
-const SERVICE_ROOT = 'https://discordee-dd480.firebaseapp.com';
-const CLIENT_ID = '337506226680102914';
-const CLIENT_SECRET = 'ShQRUwC17sE97RUOZVpDwXWrlxmYgwoe';
-const redirect = encodeURIComponent(`${API_ROOT}/callback`);
+const ROOT = functions.config().discordee.root;
+const CLIENT_ID = functions.config().discordee.id;
+const CLIENT_SECRET = functions.config().discordee.secret;
+const redirect = encodeURIComponent(`${ROOT}/callback`);
+
+const getUser = (token) => {
+    const fetchUrl = 'https://discordapp.com/api/users/@me';
+    fetch(fetchUrl, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        console.log('User', json);
+    });
+};
+
+const getUserGuilds = (token) => {
+    const fetchUrl = 'https://discordapp.com/api/users/@me/guilds';
+    fetch(fetchUrl, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        console.log('User Guilds', json);
+    });
+};
 
 exports.login = functions.https.onRequest((req, res) => {
+    console.log('login start...');
     res.redirect(`https://discordapp.com/oauth2/authorize?client_id=${CLIENT_ID}&scope=identify+guilds&response_type=code&redirect_uri=${redirect}&permissions=32`);
 });
 
@@ -27,8 +56,12 @@ exports.callback = functions.https.onRequest((req, res) => {
     }).then((res) => {
         return res.json();
     }).then((json) => {
-        console.log('callback response...', json);
-        res.cookie('discordee_api_token', json.access_token);
-        res.redirect(SERVICE_ROOT);
+        console.log('callback response...', json.access_token);
+        const token = json.access_token;
+        getUser(token);
+        getUserGuilds(token);
+    }).then(() => {
+        res.redirect(ROOT);
     });
 });
+

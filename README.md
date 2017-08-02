@@ -10,6 +10,8 @@ discord 서버목록 검색 플랫폼.
     - [Heroku Node.js Server](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
 - [Enabling CORS in Cloud Functions for Firebase](https://stackoverflow.com/questions/42755131/enabling-cors-in-cloud-functions-for-firebase)
 - [Cloud Functions for Firebase and third party api](https://stackoverflow.com/questions/43967510/cloud-functions-for-firebase-and-third-party-api)
+- [호스팅과 Colud Functions 연결](https://firebase.google.com/docs/hosting/functions?hl=ko)
+- [Webpack Dev Server와 Firebase Serve 함께 사용](http://qiita.com/koki_cheese/items/8892644c7ebff733466d)
 
 # Create-react-app 매뉴얼
 

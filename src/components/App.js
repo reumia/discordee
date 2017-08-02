@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import fire from '../utils/fire';
 import Item from './Item';
 import Register from './Register';
@@ -23,19 +22,7 @@ class App extends Component {
     }
 
     handleRegister = () => {
-        // this.setState({isRegisterVisible: this.state.isRegisterVisible === false});
-        axios({
-            method: 'get',
-            url: 'http://localhost:5002/discordee-dd480/us-central1/auth',
-            headers: {
-                'Access-Control-Allow-Origin': "*"
-            }
-        }).then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        window.location.href = "http://localhost:5000/login";
     }
 
     render() {
@@ -45,6 +32,8 @@ class App extends Component {
                 return (
                     <Item data={item} key={key}/>
                 )
+            } else {
+                return ''
             }
         });
 

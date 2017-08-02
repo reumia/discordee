@@ -22,7 +22,7 @@ class App extends Component {
     }
 
     handleRegister = () => {
-        window.location.href = "http://localhost:5000/login";
+        window.location.href = "/login";
     }
 
     render() {

@@ -17,6 +17,10 @@ Firebase를 활용한 Discordee의 개발은 여기에서 종료하고, Heroku�
 External API를 사용하지 않는 서비스의 경우에는 Firebase의 강력한 유틸리티를 활용해서 개발하는 것이 개발 속도와 안정성에서 이점이 여러모로 크다.
 개발간 유용했던 팁을 기록하는 것으로 이 저장소에 관련한 작업을 마무리하고자 한다.
 
+### 2017.08.17 서비스 오픈 및 Bitbucket Private 저장소로 이전
+
+http://www.discordee.com
+
 ## Firebase 개발참고
 
 - [호스팅과 Colud Functions 연결](https://firebase.google.com/docs/hosting/functions?hl=ko)
